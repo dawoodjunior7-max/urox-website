@@ -1,0 +1,1148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UROX Lubricants — Precision Engineering from Ukraine</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&family=Syne:wght@500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#050810;--s1:#0C1220;--s2:#121A2E;--steel:#1E2D45;
+  --mist:#6B7A8D;--fog:#A8B4C0;--white:#E8EDF2;
+  --gold:#D4A840;--gold2:#EFC050;--orange:#E8720C;
+  --golddim:rgba(212,168,64,0.10);--goldbdr:rgba(212,168,64,0.28);
+  --serif:'DM Serif Display',Georgia,serif;
+  --syne:'Syne',sans-serif;--sans:'DM Sans',sans-serif;
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--fog);font-family:var(--sans);font-weight:300;font-size:16px;line-height:1.7;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+
+/* ══ NAV ══ */
+nav{
+  position:sticky;top:0;z-index:200;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 48px;height:72px;
+  background:rgba(5,8,16,0.88);
+  backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+  border-bottom:1px solid rgba(255,255,255,0.06);
+}
+
+/* ── 3D OIL-FILL LOGO ── */
+.logo{display:flex;align-items:center;gap:0;cursor:default;user-select:none}
+.logo-part{
+  font-family:var(--syne);font-weight:800;font-size:26px;
+  letter-spacing:0.18em;color:var(--white);text-transform:uppercase;
+  text-shadow:0 2px 8px rgba(0,0,0,0.4);
+}
+.logo-o-wrap{
+  position:relative;display:inline-block;
+  width:28px;height:30px;margin:0 1px;
+  vertical-align:middle;
+}
+.logo-o-wrap canvas{
+  position:absolute;top:50%;left:50%;
+  transform:translate(-50%,-50%);
+  display:block;
+}
+
+.nav-links{display:flex;gap:32px;list-style:none}
+.nav-links a{
+  font-family:var(--syne);font-size:12px;font-weight:500;
+  letter-spacing:0.12em;text-transform:uppercase;color:var(--mist);
+  transition:color .2s;
+}
+.nav-links a:hover{color:var(--white)}
+.nav-btn{
+  font-family:var(--syne);font-size:11px;font-weight:700;
+  letter-spacing:0.14em;text-transform:uppercase;
+  border:1px solid var(--gold);color:var(--gold);
+  padding:9px 22px;border-radius:2px;
+  transition:background .2s,color .2s,box-shadow .2s;
+}
+.nav-btn:hover{background:var(--gold);color:var(--bg);box-shadow:0 0 20px rgba(212,168,64,0.3)}
+
+/* ══ HERO ══ */
+.hero{
+  position:relative;min-height:100vh;
+  display:flex;align-items:center;
+  padding:0 48px;overflow:hidden;
+}
+.hero-grid-bg{
+  position:absolute;inset:0;
+  background-image:
+    linear-gradient(rgba(212,168,64,0.025) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(212,168,64,0.025) 1px,transparent 1px);
+  background-size:80px 80px;
+  mask-image:radial-gradient(ellipse 80% 90% at 55% 50%,black 20%,transparent 80%);
+}
+.hero-particles{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+.hero-glow{
+  position:absolute;right:-8%;top:50%;transform:translateY(-50%);
+  width:780px;height:780px;border-radius:50%;
+  background:radial-gradient(circle,rgba(212,168,64,0.09) 0%,transparent 65%);
+  pointer-events:none;animation:glowpulse 6s ease-in-out infinite;
+}
+.hero-glow2{
+  position:absolute;left:-10%;top:20%;
+  width:400px;height:400px;border-radius:50%;
+  background:radial-gradient(circle,rgba(14,30,80,0.6) 0%,transparent 70%);
+  pointer-events:none;
+}
+@keyframes glowpulse{0%,100%{opacity:0.8;transform:translateY(-50%) scale(1)}50%{opacity:1;transform:translateY(-50%) scale(1.05)}}
+
+.hero-inner{
+  position:relative;z-index:2;
+  max-width:1280px;margin:0 auto;width:100%;
+  display:grid;grid-template-columns:1fr 460px;gap:80px;align-items:center;
+}
+.hero-eyebrow{
+  display:inline-flex;align-items:center;gap:12px;
+  font-family:var(--syne);font-size:11px;font-weight:600;
+  letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);
+  margin-bottom:32px;opacity:0;animation:fadeup .8s .3s forwards;
+}
+.hero-eyebrow::before{content:'';width:28px;height:1px;background:var(--gold)}
+h1.hero-head{
+  font-family:var(--serif);font-size:clamp(54px,6.5vw,94px);
+  line-height:0.93;color:var(--white);
+  margin-bottom:36px;letter-spacing:-0.01em;
+  opacity:0;animation:fadeup .8s .5s forwards;
+}
+h1.hero-head .ghost{
+  -webkit-text-stroke:1.5px var(--gold);
+  color:transparent;display:inline;
+}
+.hero-sub{
+  font-size:15px;color:var(--fog);line-height:1.9;
+  max-width:460px;margin-bottom:44px;
+  opacity:0;animation:fadeup .8s .7s forwards;
+}
+.hero-actions{
+  display:flex;gap:16px;align-items:center;flex-wrap:wrap;margin-bottom:56px;
+  opacity:0;animation:fadeup .8s .9s forwards;
+}
+.btn-fill{
+  display:inline-block;background:var(--gold);color:var(--bg);
+  font-family:var(--syne);font-size:12px;font-weight:700;
+  letter-spacing:0.12em;text-transform:uppercase;
+  padding:14px 34px;border-radius:2px;
+  transition:background .2s,transform .15s,box-shadow .2s;
+  box-shadow:0 4px 20px rgba(212,168,64,0.2);
+}
+.btn-fill:hover{background:var(--gold2);transform:translateY(-2px);box-shadow:0 8px 30px rgba(212,168,64,0.35)}
+.btn-line{
+  display:inline-flex;align-items:center;gap:8px;
+  font-family:var(--syne);font-size:12px;font-weight:500;
+  letter-spacing:0.1em;text-transform:uppercase;
+  color:var(--fog);transition:color .2s;
+}
+.btn-line::after{content:'↗';font-size:14px;transition:transform .2s}
+.btn-line:hover{color:var(--white)}
+.btn-line:hover::after{transform:translate(2px,-2px)}
+.origin-pill{
+  display:inline-flex;align-items:center;gap:10px;
+  background:rgba(30,45,69,0.5);
+  border:1px solid rgba(255,255,255,0.07);
+  border-radius:2px;padding:10px 18px;
+  backdrop-filter:blur(8px);
+  opacity:0;animation:fadeup .8s 1.1s forwards;
+}
+.origin-sep{width:1px;height:16px;background:var(--steel)}
+.origin-text{font-family:var(--syne);font-size:11px;font-weight:500;letter-spacing:0.08em;color:var(--fog)}
+
+/* Hero right — 3D diagram */
+.hero-diagram{
+  position:relative;display:flex;align-items:center;justify-content:center;
+  opacity:0;animation:fadeup .8s .6s forwards;
+}
+.hero-diagram canvas{display:block}
+
+@keyframes fadeup{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+
+/* ══ TICKER ══ */
+.ticker-wrap{
+  background:linear-gradient(90deg,#B8820A,var(--gold),#EFC050,var(--gold),#B8820A);
+  background-size:300% 100%;animation:shiftgold 6s ease infinite;
+  padding:12px 0;overflow:hidden;white-space:nowrap;
+}
+@keyframes shiftgold{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+.ticker-track{display:inline-flex;animation:tick 38s linear infinite}
+.ticker-item{
+  font-family:var(--syne);font-size:12px;font-weight:700;
+  letter-spacing:0.2em;text-transform:uppercase;
+  color:var(--bg);padding:0 44px;
+}
+.ticker-sep{color:rgba(5,8,16,0.25);align-self:center;font-size:8px}
+@keyframes tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ══ SECTIONS ══ */
+.sec{padding:120px 48px}
+.container{max-width:1280px;margin:0 auto}
+.sec-eye{
+  display:inline-flex;align-items:center;gap:10px;
+  font-family:var(--syne);font-size:11px;font-weight:600;
+  letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);
+  margin-bottom:18px;
+}
+.sec-eye::before{content:'';width:20px;height:1px;background:var(--gold)}
+.sec-title{
+  font-family:var(--serif);font-size:clamp(38px,4vw,60px);
+  line-height:1.02;color:var(--white);margin-bottom:20px;
+}
+.sec-sub{font-size:15px;color:var(--fog);line-height:1.85;max-width:520px}
+
+/* ══ PRODUCTS ══ */
+.sec-products{background:var(--s1);position:relative;overflow:hidden}
+.sec-products::before{
+  content:'';position:absolute;top:-200px;right:-200px;
+  width:600px;height:600px;border-radius:50%;
+  background:radial-gradient(circle,rgba(212,168,64,0.04) 0%,transparent 70%);
+  pointer-events:none;
+}
+.prod-header{display:flex;justify-content:space-between;align-items:flex-end;gap:48px;margin-bottom:64px}
+.prod-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:2px}
+
+/* 3D card effect */
+.pc{
+  background:var(--s2);padding:40px 32px;position:relative;overflow:hidden;
+  transition:transform .3s cubic-bezier(.2,.8,.2,1),background .25s,box-shadow .3s;
+  cursor:pointer;transform-style:preserve-3d;
+}
+.pc:hover{
+  background:rgba(22,33,56,0.95);
+  transform:translateY(-6px) scale(1.01);
+  box-shadow:0 20px 60px rgba(0,0,0,0.4),0 0 30px rgba(212,168,64,0.08);
+  z-index:2;
+}
+.pc-shimmer{
+  position:absolute;top:0;left:-100%;width:60%;height:100%;
+  background:linear-gradient(105deg,transparent 40%,rgba(255,255,255,0.04) 50%,transparent 60%);
+  transition:left .5s ease;pointer-events:none;
+}
+.pc:hover .pc-shimmer{left:160%}
+.pc-corner{
+  position:absolute;top:0;right:0;width:0;height:0;
+  border-top:40px solid rgba(212,168,64,0.15);
+  border-left:40px solid transparent;
+  transition:border-top-width .3s,border-left-width .3s;
+}
+.pc:hover .pc-corner{border-top-width:56px;border-left-width:56px;border-top-color:rgba(212,168,64,0.25)}
+.pc-bar{
+  position:absolute;bottom:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,var(--gold),var(--gold2));
+  transform:scaleX(0);transform-origin:left;
+  transition:transform .35s cubic-bezier(.4,0,.2,1);
+}
+.pc:hover .pc-bar{transform:scaleX(1)}
+.pc-large{grid-column:span 7}
+.pc-small{grid-column:span 5}
+.pc-third{grid-column:span 4}
+.pc-grade{
+  font-family:var(--syne);font-size:11px;font-weight:600;
+  letter-spacing:0.16em;text-transform:uppercase;
+  color:var(--gold);margin-bottom:10px;
+}
+.pc-name{
+  font-family:var(--serif);font-size:clamp(22px,2.4vw,32px);
+  color:var(--white);margin-bottom:16px;line-height:1.1;
+}
+.pc-desc{font-size:13px;color:var(--mist);line-height:1.85;margin-bottom:28px}
+.spec-list{margin-bottom:28px}
+.spec-line{
+  display:flex;justify-content:space-between;
+  font-family:var(--syne);font-size:12px;
+  padding:9px 0;border-bottom:1px solid rgba(255,255,255,0.04);
+}
+.spec-k{color:var(--mist);letter-spacing:0.04em}
+.spec-v{color:var(--fog)}
+.pc-cta{
+  display:inline-flex;align-items:center;gap:6px;
+  font-family:var(--syne);font-size:11px;font-weight:600;
+  letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);
+  transition:gap .2s;
+}
+.pc:hover .pc-cta{gap:10px}
+.pc-cta::after{content:'→'}
+.pc-large .pc-inner{display:grid;grid-template-columns:1fr 160px;gap:0;height:100%}
+.pc-vis{
+  background:var(--s1);
+  display:flex;align-items:center;justify-content:center;
+  min-height:260px;position:relative;overflow:hidden;
+}
+.pc-vis::after{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(circle at 50% 50%,rgba(212,168,64,0.06),transparent 70%);
+}
+
+/* ══ SPECS ══ */
+.sec-specs{background:var(--bg);position:relative}
+.sec-specs::after{
+  content:'';position:absolute;bottom:0;left:0;right:0;height:1px;
+  background:linear-gradient(90deg,transparent,var(--steel),transparent);
+}
+.specs-layout{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;margin-top:64px}
+.spec-table{width:100%;border-collapse:collapse;font-family:var(--syne);font-size:12px}
+.spec-table thead th{
+  text-align:left;padding:10px 14px;
+  font-size:10px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;
+  color:var(--mist);border-bottom:1px solid var(--steel);
+}
+.spec-table tbody td{padding:13px 14px;border-bottom:1px solid rgba(255,255,255,0.04);color:var(--fog)}
+.spec-table tbody td:first-child{color:var(--mist)}
+.spec-table tbody td.val{color:var(--white);letter-spacing:0.04em}
+.spec-table tbody tr{transition:background .2s}
+.spec-table tbody tr:hover td{background:rgba(212,168,64,0.03)}
+.approvals{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:32px}
+.appr{
+  background:var(--s1);border:1px solid var(--steel);
+  border-radius:3px;padding:18px 14px;text-align:center;
+  transition:border-color .2s,transform .2s,box-shadow .2s;
+}
+.appr:hover{border-color:var(--goldbdr);transform:translateY(-3px);box-shadow:0 8px 24px rgba(0,0,0,0.3)}
+.appr-code{font-family:var(--syne);font-size:16px;font-weight:700;color:var(--white);letter-spacing:0.06em;margin-bottom:4px}
+.appr-name{font-size:10px;color:var(--mist);letter-spacing:0.05em;line-height:1.5}
+.tds-box{
+  background:var(--s1);border:1px solid var(--goldbdr);
+  border-radius:3px;padding:24px;
+  box-shadow:0 0 40px rgba(212,168,64,0.04);
+}
+.tds-label{font-family:var(--syne);font-size:11px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold);margin-bottom:8px}
+.tds-desc{font-size:13px;color:var(--fog);line-height:1.75;margin-bottom:20px}
+
+/* ══ TRUST ══ */
+.sec-trust{background:var(--s1)}
+.trust-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--steel);margin-top:64px}
+.trust-card{
+  background:var(--s1);padding:48px 32px;
+  transition:background .3s;position:relative;overflow:hidden;
+}
+.trust-card::before{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(135deg,rgba(212,168,64,0.04) 0%,transparent 60%);
+  opacity:0;transition:opacity .3s;
+}
+.trust-card:hover{background:var(--s2)}
+.trust-card:hover::before{opacity:1}
+.trust-num{
+  width:52px;height:52px;border-radius:2px;
+  border:1px solid var(--goldbdr);
+  display:flex;align-items:center;justify-content:center;
+  font-size:20px;color:var(--gold);
+  margin-bottom:24px;
+  transition:box-shadow .3s,border-color .3s;
+}
+.trust-card:hover .trust-num{box-shadow:0 0 20px rgba(212,168,64,0.2);border-color:var(--gold)}
+.trust-title{font-family:var(--syne);font-size:14px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--white);margin-bottom:10px}
+.trust-desc{font-size:13px;color:var(--mist);line-height:1.8}
+
+/* ══ SEGMENTS ══ */
+.sec-seg{background:var(--bg)}
+.seg-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:64px}
+.seg-card{
+  background:var(--s1);border:1px solid var(--steel);
+  border-radius:4px;padding:40px 32px;
+  transition:border-color .3s,transform .3s cubic-bezier(.2,.8,.2,1),box-shadow .3s;
+  position:relative;overflow:hidden;
+}
+.seg-card::before{
+  content:'';position:absolute;bottom:0;left:0;right:0;height:0;
+  background:linear-gradient(0deg,rgba(212,168,64,0.05),transparent);
+  transition:height .4s;
+}
+.seg-card:hover{border-color:var(--goldbdr);transform:translateY(-6px);box-shadow:0 24px 60px rgba(0,0,0,0.4)}
+.seg-card:hover::before{height:100%}
+.seg-ico{
+  width:50px;height:50px;border-radius:3px;
+  background:var(--golddim);border:1px solid var(--goldbdr);
+  display:flex;align-items:center;justify-content:center;
+  font-size:22px;margin-bottom:24px;
+  transition:box-shadow .3s;
+}
+.seg-card:hover .seg-ico{box-shadow:0 0 24px rgba(212,168,64,0.2)}
+.seg-title{font-family:var(--syne);font-size:15px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--white);margin-bottom:12px}
+.seg-desc{font-size:13px;color:var(--mist);line-height:1.8;margin-bottom:24px}
+.seg-link{display:inline-flex;align-items:center;gap:6px;font-family:var(--syne);font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold)}
+.seg-link::after{content:'→';transition:transform .2s}
+.seg-card:hover .seg-link::after{transform:translateX(4px)}
+
+/* ══ ORIGIN BANNER ══ */
+.sec-origin{
+  background:var(--s2);
+  border-top:1px solid var(--steel);border-bottom:1px solid var(--steel);
+  padding:72px 48px;position:relative;overflow:hidden;
+}
+.sec-origin::before{
+  content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  width:800px;height:200px;
+  background:radial-gradient(ellipse,rgba(212,168,64,0.04) 0%,transparent 70%);
+  pointer-events:none;
+}
+.origin-layout{max-width:1280px;margin:0 auto;display:flex;align-items:center;gap:56px}
+.origin-flag-block{flex-shrink:0;text-align:center}
+.big-flag{font-size:56px;line-height:1;margin-bottom:8px;filter:drop-shadow(0 4px 12px rgba(0,0,0,0.4))}
+.flag-label{font-family:var(--syne);font-size:11px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--mist)}
+.origin-arrow{font-size:24px;color:var(--goldbdr);flex-shrink:0}
+.origin-text-block h3{font-family:var(--serif);font-size:28px;color:var(--white);margin-bottom:10px}
+.origin-text-block p{font-size:14px;color:var(--fog);line-height:1.85;max-width:560px}
+
+/* ══ CONTACT ══ */
+.sec-contact{background:var(--bg)}
+.contact-layout{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;margin-top:64px}
+.contact-checklist{display:flex;flex-direction:column;gap:14px;margin-top:32px}
+.check-item{display:flex;align-items:flex-start;gap:12px;font-size:14px;color:var(--fog);line-height:1.65}
+.check-mark{color:var(--gold);margin-top:3px;flex-shrink:0;font-family:var(--syne);font-size:13px;font-weight:700}
+.form-stack{display:flex;flex-direction:column;gap:12px}
+.form-row-2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.fi{
+  background:var(--s1);border:1px solid var(--steel);
+  border-radius:3px;padding:13px 16px;
+  color:var(--white);font-family:var(--sans);font-size:14px;font-weight:300;
+  outline:none;width:100%;transition:border-color .2s,box-shadow .2s;
+}
+.fi::placeholder{color:var(--mist)}
+.fi:focus{border-color:rgba(212,168,64,0.5);box-shadow:0 0 0 3px rgba(212,168,64,0.06)}
+select.fi{appearance:none;cursor:pointer;color:var(--fog)}
+textarea.fi{resize:vertical;line-height:1.65}
+.form-submit{
+  background:var(--gold);color:var(--bg);border:none;border-radius:3px;
+  font-family:var(--syne);font-size:12px;font-weight:700;
+  letter-spacing:0.12em;text-transform:uppercase;
+  padding:15px 34px;cursor:pointer;align-self:flex-start;
+  transition:background .2s,box-shadow .2s,transform .15s;
+  box-shadow:0 4px 20px rgba(212,168,64,0.2);
+}
+.form-submit:hover{background:var(--gold2);box-shadow:0 8px 30px rgba(212,168,64,0.35);transform:translateY(-1px)}
+
+/* ══ FOOTER ══ */
+footer{background:#030508;border-top:1px solid rgba(255,255,255,0.05);padding:64px 48px 32px}
+.footer-grid{
+  max-width:1280px;margin:0 auto;
+  display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr;gap:56px;
+  padding-bottom:48px;border-bottom:1px solid rgba(255,255,255,0.05);margin-bottom:28px;
+}
+.footer-logo{
+  font-family:var(--syne);font-weight:800;font-size:24px;
+  letter-spacing:0.22em;color:var(--white);margin-bottom:14px;
+  display:flex;align-items:center;gap:2px;
+}
+.footer-logo-o{color:var(--gold)}
+.footer-about{font-size:13px;color:var(--mist);line-height:1.8;margin-bottom:20px}
+.footer-detail{display:flex;align-items:flex-start;gap:10px;font-size:12px;color:var(--mist);margin-bottom:8px;line-height:1.6}
+.footer-detail-icon{color:var(--gold);flex-shrink:0;margin-top:1px}
+.footer-col-head{font-family:var(--syne);font-size:11px;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:var(--fog);margin-bottom:20px}
+.footer-links{list-style:none;display:flex;flex-direction:column;gap:10px}
+.footer-links a{font-size:13px;color:var(--mist);transition:color .2s}
+.footer-links a:hover{color:var(--white)}
+.footer-bottom{
+  max-width:1280px;margin:0 auto;
+  display:flex;justify-content:space-between;align-items:center;
+  font-family:var(--syne);font-size:11px;letter-spacing:0.06em;
+  color:rgba(107,122,141,0.5);
+}
+
+/* ══ FADE-UP ══ */
+.fu{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+.fu.in{opacity:1;transform:none}
+
+/* ══ RESPONSIVE ══ */
+@media(max-width:960px){
+  nav{padding:0 20px}
+  .nav-links{display:none}
+  .hero{padding:80px 20px;min-height:auto}
+  .hero-inner{grid-template-columns:1fr;gap:48px}
+  .hero-diagram{display:none}
+  .sec{padding:72px 20px}
+  .prod-header{flex-direction:column;align-items:flex-start}
+  .prod-grid{grid-template-columns:1fr}
+  .pc-large,.pc-small,.pc-third{grid-column:span 1}
+  .pc-large .pc-inner{grid-template-columns:1fr}
+  .pc-vis{min-height:140px}
+  .specs-layout{grid-template-columns:1fr;gap:40px}
+  .approvals{grid-template-columns:repeat(2,1fr)}
+  .trust-grid{grid-template-columns:1fr 1fr}
+  .seg-grid{grid-template-columns:1fr}
+  .contact-layout{grid-template-columns:1fr;gap:40px}
+  .origin-layout{flex-direction:column;gap:24px;text-align:center}
+  .origin-arrow{transform:rotate(90deg)}
+  .footer-grid{grid-template-columns:1fr 1fr;gap:32px}
+  .footer-bottom{flex-direction:column;gap:10px;text-align:center}
+}
+</style>
+</head>
+<body>
+
+<!-- ══ NAV ══ -->
+<nav>
+  <div class="logo">
+    <span class="logo-part">UR</span>
+    <span class="logo-o-wrap"><canvas id="logoCanvas" width="28" height="30"></canvas></span>
+    <span class="logo-part">X</span>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#products">Products</a></li>
+    <li><a href="#specs">Specifications</a></li>
+    <li><a href="#segments">Industries</a></li>
+    <li><a href="#contact">Distributors</a></li>
+  </ul>
+  <a href="#contact" class="nav-btn">Request Quote</a>
+</nav>
+
+<!-- ══ HERO ══ -->
+<section class="hero">
+  <div class="hero-grid-bg"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-glow2"></div>
+  <canvas id="particleCanvas" class="hero-particles" style="position:absolute;inset:0;width:100%;height:100%"></canvas>
+  <div class="hero-inner">
+    <div>
+      <div class="hero-eyebrow">Ukrainian Lubricant Engineering</div>
+      <h1 class="hero-head">
+        Engineered<br>
+        for <span class="ghost">every</span><br>
+        engine.
+      </h1>
+      <p class="hero-sub">
+        UROX is a premium lubricant brand formulated and manufactured in Ukraine to European standards. Available for passenger vehicles, commercial fleets, and workshops — with full export documentation for international distribution.
+      </p>
+      <div class="hero-actions">
+        <a href="#products" class="btn-fill">Explore Products</a>
+        <a href="#specs" class="btn-line">View Specifications</a>
+      </div>
+      <div class="origin-pill">
+        <span style="font-size:18px">🇺🇦</span>
+        <span class="origin-text">Manufactured in Ukraine</span>
+        <span class="origin-sep"></span>
+        <span style="font-size:18px">🇵🇰</span>
+        <span class="origin-text">Packaged &amp; distributed from Pakistan</span>
+      </div>
+    </div>
+    <!-- Technical 3D Diagram -->
+    <div class="hero-diagram">
+      <canvas id="diagramCanvas" width="440" height="480"></canvas>
+    </div>
+  </div>
+</section>
+
+<!-- ══ TICKER ══ -->
+<div class="ticker-wrap">
+  <div class="ticker-track">
+    <span class="ticker-item">Fully Synthetic</span><span class="ticker-sep">◆</span>
+    <span class="ticker-item">Semi-Synthetic</span><span class="ticker-sep">◆</span>
+    <span class="ticker-item">Heavy Duty Diesel</span><span class="ticker-sep">◆</span>
+    <span class="ticker-item">Gear &amp; Transmission</span><span class="ticker-sep">◆</span>
+    <span class="ticker-item">Hydraulic Fluids</span><span class="ticker-sep">◆</span>
+    <span class="ticker-item">API Certified</span><span class="ticker-sep">◆</span>
+    <span class="ticker-item">ACEA Approved</span><span class="ticker-sep">◆</span>
+    <span class="ticker-item">Manufactured in Ukraine</span><span class="ticker-sep">◆</span>
+    <span class="ticker-item">Export Ready</span><span class="ticker-sep">◆</span>
+    <span class="ticker-item">Fully Synthetic</span><span class="ticker-sep">◆</span>
+    <span class="ticker-item">Semi-Synthetic</span><span class="ticker-sep">◆</span>
+    <span class="ticker-item">Heavy Duty Diesel</span><span class="ticker-sep">◆</span>
+    <span class="ticker-item">Gear &amp; Transmission</span><span class="ticker-sep">◆</span>
+    <span class="ticker-item">Hydraulic Fluids</span><span class="ticker-sep">◆</span>
+    <span class="ticker-item">API Certified</span><span class="ticker-sep">◆</span>
+    <span class="ticker-item">ACEA Approved</span><span class="ticker-sep">◆</span>
+    <span class="ticker-item">Manufactured in Ukraine</span><span class="ticker-sep">◆</span>
+    <span class="ticker-item">Export Ready</span><span class="ticker-sep">◆</span>
+  </div>
+</div>
+
+<!-- ══ PRODUCTS ══ -->
+<section class="sec sec-products" id="products">
+  <div class="container">
+    <div class="prod-header">
+      <div>
+        <div class="sec-eye">Product Range</div>
+        <h2 class="sec-title fu">Ukrainian formulation.<br>International standard.</h2>
+      </div>
+      <p class="sec-sub fu" style="margin-bottom:0">Every grade precisely engineered for its application — from high-revving petrol engines to heavy commercial fleets across export markets.</p>
+    </div>
+    <div class="prod-grid">
+      <div class="pc pc-large fu">
+        <div class="pc-shimmer"></div><div class="pc-corner"></div><div class="pc-bar"></div>
+        <div class="pc-inner">
+          <div>
+            <div class="pc-grade">Flagship · Fully Synthetic</div>
+            <div class="pc-name">UROX Ultra Dynamic<br>9000</div>
+            <p class="pc-desc">High-quality fully synthetic multigrade diesel engine oil. Formulated in Ukraine for diesel engines of all brands — with and without turbocharging. Excellent stability at very high and low temperatures.</p>
+            <div class="spec-list">
+              <div class="spec-line"><span class="spec-k">Viscosity Grade</span><span class="spec-v">SAE 15W-40</span></div>
+              <div class="spec-line"><span class="spec-k">API Rating</span><span class="spec-v">CI-4 / SL</span></div>
+              <div class="spec-line"><span class="spec-k">Type</span><span class="spec-v">Multigrade Diesel Engine Oil</span></div>
+              <div class="spec-line"><span class="spec-k">Pack Sizes</span><span class="spec-v">1L · 4L · 20L · 208L</span></div>
+            </div>
+            <a href="#" class="pc-cta">Technical Data Sheet</a>
+          </div>
+          <div class="pc-vis">
+            <svg viewBox="0 0 100 220" width="80" fill="none" aria-hidden="true">
+              <rect x="36" y="0" width="28" height="22" rx="4" fill="rgba(212,168,64,0.5)"/>
+              <rect x="30" y="20" width="40" height="8" rx="1" fill="rgba(212,168,64,0.25)"/>
+              <rect x="18" y="28" width="64" height="176" rx="8" fill="#121A2E" stroke="rgba(212,168,64,0.3)" stroke-width="1"/>
+              <rect x="22" y="68" width="56" height="96" rx="4" fill="rgba(212,168,64,0.05)"/>
+              <text x="50" y="105" text-anchor="middle" font-family="Syne,sans-serif" font-size="11" font-weight="700" fill="#D4A840" letter-spacing="2">UROX</text>
+              <text x="50" y="120" text-anchor="middle" font-family="Syne,sans-serif" font-size="7.5" font-weight="600" fill="#E8EDF2" letter-spacing="1">ULTRA DYNAMIC</text>
+              <text x="50" y="134" text-anchor="middle" font-family="Syne,sans-serif" font-size="12" font-weight="700" fill="#E8EDF2" letter-spacing="0">9000</text>
+              <text x="50" y="146" text-anchor="middle" font-family="Syne,sans-serif" font-size="6.5" fill="#6B7A8D" letter-spacing="1">15W-40</text>
+            </svg>
+          </div>
+        </div>
+      </div>
+      <div class="pc pc-small fu">
+        <div class="pc-shimmer"></div><div class="pc-corner"></div><div class="pc-bar"></div>
+        <div class="pc-grade">Semi-Synthetic</div>
+        <div class="pc-name">UROX Pro 10W-40</div>
+        <p class="pc-desc">Reliable all-rounder for mixed petrol and diesel. Handles extreme summer heat and dusty conditions with consistent viscosity retention.</p>
+        <div class="spec-list">
+          <div class="spec-line"><span class="spec-k">Viscosity</span><span class="spec-v">10W-40</span></div>
+          <div class="spec-line"><span class="spec-k">API</span><span class="spec-v">SN / CF</span></div>
+          <div class="spec-line"><span class="spec-k">ACEA</span><span class="spec-v">A3/B3</span></div>
+        </div>
+        <a href="#" class="pc-cta">Technical Data Sheet</a>
+      </div>
+      <div class="pc pc-third fu">
+        <div class="pc-shimmer"></div><div class="pc-corner"></div><div class="pc-bar"></div>
+        <div class="pc-grade">Heavy Duty Diesel</div>
+        <div class="pc-name">UROX HD 15W-40</div>
+        <p class="pc-desc">For trucks, buses, and commercial fleets. High soot capacity and oxidation resistance under sustained high-load operation.</p>
+        <div class="spec-list">
+          <div class="spec-line"><span class="spec-k">Viscosity</span><span class="spec-v">15W-40</span></div>
+          <div class="spec-line"><span class="spec-k">API</span><span class="spec-v">CI-4 / SL</span></div>
+        </div>
+        <a href="#" class="pc-cta">Technical Data Sheet</a>
+      </div>
+      <div class="pc pc-third fu">
+        <div class="pc-shimmer"></div><div class="pc-corner"></div><div class="pc-bar"></div>
+        <div class="pc-grade">Gear &amp; Transmission</div>
+        <div class="pc-name">UROX Gear 80W-90</div>
+        <p class="pc-desc">Manual gearboxes, differentials, and transfer cases. Extreme pressure additives for maximum gear protection and smooth shifting.</p>
+        <div class="spec-list">
+          <div class="spec-line"><span class="spec-k">Viscosity</span><span class="spec-v">80W-90</span></div>
+          <div class="spec-line"><span class="spec-k">Spec</span><span class="spec-v">GL-4 / GL-5</span></div>
+        </div>
+        <a href="#" class="pc-cta">Technical Data Sheet</a>
+      </div>
+      <div class="pc pc-third fu">
+        <div class="pc-shimmer"></div><div class="pc-corner"></div><div class="pc-bar"></div>
+        <div class="pc-grade">Hydraulic &amp; Industrial</div>
+        <div class="pc-name">UROX Hydra 46</div>
+        <p class="pc-desc">Industrial and mobile hydraulic systems. Outstanding anti-wear, thermal stability and demulsification for continuous-duty applications.</p>
+        <div class="spec-list">
+          <div class="spec-line"><span class="spec-k">ISO Grade</span><span class="spec-v">VG 46</span></div>
+          <div class="spec-line"><span class="spec-k">Spec</span><span class="spec-v">ISO 11158 HM</span></div>
+        </div>
+        <a href="#" class="pc-cta">Technical Data Sheet</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ SPECS ══ -->
+<section class="sec sec-specs" id="specs">
+  <div class="container">
+    <div class="sec-eye">Technical Specifications</div>
+    <h2 class="sec-title fu">Built for engineers,<br>trusted by mechanics.</h2>
+    <div class="specs-layout">
+      <div class="fu">
+        <p style="font-size:14px;color:var(--fog);line-height:1.85;margin-bottom:32px">All UROX products are formulated in Ukraine to European Group II/III base oil standards. Below is the full physical properties table for our flagship Ultra Dynamic 9000.</p>
+        <table class="spec-table">
+          <thead><tr><th>Property</th><th>Test Method</th><th>Result</th></tr></thead>
+          <tbody>
+            <tr><td>Kinematic Viscosity @ 100°C</td><td>ASTM D445</td><td class="val">14.8 cSt</td></tr>
+            <tr><td>Kinematic Viscosity @ 40°C</td><td>ASTM D445</td><td class="val">108.0 cSt</td></tr>
+            <tr><td>Viscosity Index</td><td>ASTM D2270</td><td class="val">141</td></tr>
+            <tr><td>Flash Point (COC)</td><td>ASTM D92</td><td class="val">224°C</td></tr>
+            <tr><td>Pour Point</td><td>ASTM D97</td><td class="val">−27°C</td></tr>
+            <tr><td>Total Base Number</td><td>ASTM D2896</td><td class="val">10.4 mgKOH/g</td></tr>
+            <tr><td>Density @ 15°C</td><td>ASTM D4052</td><td class="val">878 kg/m³</td></tr>
+            <tr><td>HTHS Viscosity @ 150°C</td><td>ASTM D4683</td><td class="val">4.2 mPa·s</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="fu">
+        <p style="font-family:var(--syne);font-size:11px;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:var(--mist);margin-bottom:18px">OEM Approvals &amp; Certifications</p>
+        <div class="approvals">
+          <div class="appr"><div class="appr-code">API CI-4</div><div class="appr-name">American Petroleum Institute</div></div>
+          <div class="appr"><div class="appr-code">ACEA E7</div><div class="appr-name">European Auto Manufacturers</div></div>
+          <div class="appr"><div class="appr-code">MB 228.3</div><div class="appr-name">Mercedes-Benz</div></div>
+          <div class="appr"><div class="appr-code">MAN 3275</div><div class="appr-name">MAN Trucks</div></div>
+          <div class="appr"><div class="appr-code">Volvo VDS</div><div class="appr-name">Volvo Trucks</div></div>
+          <div class="appr"><div class="appr-code">API SL</div><div class="appr-name">Petrol Engine Rating</div></div>
+        </div>
+        <div class="tds-box">
+          <div class="tds-label">Download Full TDS Pack</div>
+          <p class="tds-desc">Technical data sheets for all product grades in PDF — suitable for procurement teams, fleet managers, and import customs documentation.</p>
+          <a href="#" class="btn-fill" style="font-size:11px;padding:11px 24px">Download PDF Pack</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ TRUST ══ -->
+<section class="sec sec-trust">
+  <div class="container">
+    <div class="sec-eye">Why UROX</div>
+    <h2 class="sec-title fu">The UROX standard</h2>
+    <div class="trust-grid">
+      <div class="trust-card fu"><div class="trust-num">⬡</div><div class="trust-title">Ukrainian Formulation</div><p class="trust-desc">Base oils and additive chemistry developed and produced in Ukraine to European Group II/III standards — not merely "meets spec" blending.</p></div>
+      <div class="trust-card fu"><div class="trust-num">◈</div><div class="trust-title">OEM Approved</div><p class="trust-desc">Genuine OEM approvals from Mercedes-Benz, MAN, Volvo, and more — verified credentials, not marketing claims.</p></div>
+      <div class="trust-card fu"><div class="trust-num">◉</div><div class="trust-title">Export Ready</div><p class="trust-desc">Full export documentation: MSDS, Certificates of Analysis, customs-ready paperwork for Middle East, East Africa, and Central Asia.</p></div>
+      <div class="trust-card fu"><div class="trust-num">◆</div><div class="trust-title">Lab Verified</div><p class="trust-desc">Every production batch independently tested before release. Results available on request with each shipment.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ ORIGIN BANNER ══ -->
+<div class="sec-origin">
+  <div class="origin-layout">
+    <div class="origin-flag-block fu"><div class="big-flag">🇺🇦</div><div class="flag-label">Manufactured in Ukraine</div></div>
+    <div class="origin-arrow fu">→</div>
+    <div class="origin-flag-block fu"><div class="big-flag">🇵🇰</div><div class="flag-label">Packaged in Pakistan</div></div>
+    <div class="origin-arrow fu">→</div>
+    <div class="origin-text-block fu">
+      <h3>Global distribution</h3>
+      <p>UROX products originate from Ukrainian manufacturing facilities operating to European lubricant standards. Packaging and distribution is handled in Pakistan, enabling competitive pricing and rapid export supply to markets across the Middle East, South Asia, and East Africa.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ══ SEGMENTS ══ -->
+<section class="sec sec-seg" id="segments">
+  <div class="container">
+    <div class="sec-eye">Who We Serve</div>
+    <h2 class="sec-title fu">One brand,<br>every application.</h2>
+    <div class="seg-grid">
+      <div class="seg-card fu"><div class="seg-ico">🚗</div><div class="seg-title">Passenger Vehicles</div><p class="seg-desc">From Japanese hatchbacks to European sedans — UROX grades are formulated for modern multi-valve engines running in South Asia's demanding climate.</p><a href="#products" class="seg-link">View passenger range</a></div>
+      <div class="seg-card fu"><div class="seg-ico">🔧</div><div class="seg-title">Workshops &amp; Mechanics</div><p class="seg-desc">Trade accounts with volume pricing, rapid restocking, and technical support. A growing number of independent workshops across Pakistan choose UROX.</p><a href="#contact" class="seg-link">Open a trade account</a></div>
+      <div class="seg-card fu"><div class="seg-ico">🚛</div><div class="seg-title">Fleet &amp; Commercial</div><p class="seg-desc">Bulk supply for trucks, buses, and heavy equipment in 20L and 208L drums. Customised service intervals and bulk invoicing available.</p><a href="#contact" class="seg-link">Fleet enquiry</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CONTACT ══ -->
+<section class="sec sec-contact" id="contact">
+  <div class="container">
+    <div class="sec-eye">Distributors &amp; Export</div>
+    <h2 class="sec-title fu">Partner with<br>UROX globally.</h2>
+    <div class="contact-layout">
+      <div class="fu">
+        <p style="font-size:15px;color:var(--fog);line-height:1.85">UROX is actively expanding its distributor network across the Middle East, East Africa, and Central Asia. We offer competitive pricing, fast export turnaround, and full documentation support.</p>
+        <div class="contact-checklist">
+          <div class="check-item"><span class="check-mark">✓</span><span>Certificate of Analysis with every shipment</span></div>
+          <div class="check-item"><span class="check-mark">✓</span><span>MSDS and customs documentation included</span></div>
+          <div class="check-item"><span class="check-mark">✓</span><span>MOQ from 1,000 litres; IBC, drum, and pail packing</span></div>
+          <div class="check-item"><span class="check-mark">✓</span><span>Private label / white-label available for large volumes</span></div>
+          <div class="check-item"><span class="check-mark">✓</span><span>Dedicated export coordinator assigned to your account</span></div>
+        </div>
+        <div style="margin-top:40px;padding:24px;background:var(--s1);border:1px solid var(--steel);border-radius:3px">
+          <p style="font-family:var(--syne);font-size:11px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold);margin-bottom:10px">Direct contact</p>
+          <p style="font-size:13px;color:var(--fog);margin-bottom:4px">✉ info@uroxlube.com</p>
+          <p style="font-size:13px;color:var(--fog)">🌐 uroxlube.com</p>
+        </div>
+      </div>
+      <div class="fu">
+        <div class="form-stack">
+          <div class="form-row-2"><input type="text" class="fi" placeholder="Your name"><input type="text" class="fi" placeholder="Company"></div>
+          <div class="form-row-2"><input type="email" class="fi" placeholder="Email address"><input type="tel" class="fi" placeholder="Phone / WhatsApp"></div>
+          <select class="fi"><option value="" disabled selected>Enquiry type</option><option>Distributor / Import partnership</option><option>Fleet supply — bulk order</option><option>Workshop trade account</option><option>Retail / General enquiry</option></select>
+          <select class="fi"><option value="" disabled selected>Your country / market</option><option>United Arab Emirates</option><option>Saudi Arabia</option><option>Qatar</option><option>Kuwait</option><option>Oman</option><option>Pakistan</option><option>Afghanistan</option><option>East Africa</option><option>Other</option></select>
+          <textarea class="fi" rows="4" placeholder="Tell us about your market, volume requirements, or current supplier situation…"></textarea>
+          <button class="form-submit">Send Enquiry →</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FOOTER ══ -->
+<footer>
+  <div class="footer-grid">
+    <div>
+      <div class="footer-logo">UR<span class="footer-logo-o">O</span>X</div>
+      <p class="footer-about">Premium lubricants formulated and manufactured in Ukraine to European standards. Packaged and exported from Pakistan to markets worldwide.</p>
+      <div class="footer-detail"><span class="footer-detail-icon">◆</span><span>Marketed by Bright Lubricants<br><span style="color:rgba(107,122,141,0.5);font-size:11px">Manufactured in Ukraine · Distributed globally</span></span></div>
+      <div class="footer-detail"><span class="footer-detail-icon">✉</span><span>info@uroxlube.com</span></div>
+      <div class="footer-detail"><span class="footer-detail-icon">🌐</span><span>uroxlube.com</span></div>
+    </div>
+    <div><div class="footer-col-head">Products</div><ul class="footer-links"><li><a href="#">Fully Synthetic</a></li><li><a href="#">Semi-Synthetic</a></li><li><a href="#">Heavy Duty Diesel</a></li><li><a href="#">Gear &amp; Transmission</a></li><li><a href="#">Hydraulic Fluids</a></li></ul></div>
+    <div><div class="footer-col-head">Resources</div><ul class="footer-links"><li><a href="#">Technical Data Sheets</a></li><li><a href="#">Oil Selector Tool</a></li><li><a href="#">Certifications</a></li><li><a href="#">MSDS Downloads</a></li><li><a href="#">FAQ</a></li></ul></div>
+    <div><div class="footer-col-head">Company</div><ul class="footer-links"><li><a href="#">About UROX</a></li><li><a href="#">Distributors</a></li><li><a href="#">Trade Accounts</a></li><li><a href="#">Export Partners</a></li><li><a href="#">Contact</a></li></ul></div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 UROX Lubricants. All rights reserved. Marketed by Bright Lubricants.</span>
+    <span>Manufactured in Ukraine · Marketed by Bright Lubricants</span>
+  </div>
+</footer>
+
+<script>
+/* ══════════════════════════════════════════
+   1. OIL-FILL "O" LOGO ANIMATION
+══════════════════════════════════════════ */
+(function(){
+  const canvas = document.getElementById('logoCanvas');
+  if(!canvas) return;
+  const ctx = canvas.getContext('2d');
+  const W = canvas.width, H = canvas.height;
+  const cx = W/2, cy = H/2;
+  const R = 11, r = 6.5; // outer/inner radius of the O
+
+  let fillLevel = 0;       // 0 = empty, 1 = full
+  let direction = 1;
+  let lastTime = null;
+  const FILL_DURATION = 2800; // ms to fill fully
+  const HOLD_FULL = 1200;
+  const HOLD_EMPTY = 600;
+  let phase = 'filling'; // filling | hold_full | emptying | hold_empty
+  let holdTimer = 0;
+
+  // Wave parameters
+  const waveAmp = 1.2;
+  let waveOffset = 0;
+
+  function drawO(fill) {
+    ctx.clearRect(0,0,W,H);
+
+    // Font size to match logo-part ~26px Syne
+    const fontSize = 26;
+    ctx.font = `800 ${fontSize}px 'Syne', sans-serif`;
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+
+    // Step 1: draw filled oil using clipping to letter shape
+    if(fill > 0) {
+      ctx.save();
+      // Clip to the O letter shape
+      ctx.beginPath();
+      // Use the text as a clip — fillText trick: use compositing
+      // Draw letter as clip path via offscreen
+      ctx.font = `800 ${fontSize}px 'Syne', sans-serif`;
+      // We'll use a two-pass approach: draw oil rect, then mask with letter using destination-in
+      ctx.restore();
+
+      // Pass A: draw oil fill
+      const tmpCanvas = document.createElement('canvas');
+      tmpCanvas.width = W; tmpCanvas.height = H;
+      const tc = tmpCanvas.getContext('2d');
+
+      // Draw wavy oil surface
+      const oilTop = H * (1 - fill);
+      tc.beginPath();
+      tc.moveTo(0, H);
+      // wavy top edge
+      for(let x=0; x<=W; x+=2) {
+        const wave = Math.sin((x / W) * Math.PI * 2.5 + waveOffset) * waveAmp;
+        tc.lineTo(x, oilTop + wave);
+      }
+      tc.lineTo(W, H);
+      tc.closePath();
+
+      // Oil gradient: dark orange at bottom, bright amber at surface
+      const grad = tc.createLinearGradient(0, oilTop, 0, H);
+      grad.addColorStop(0, 'rgba(232,114,12,0.95)');
+      grad.addColorStop(0.4, 'rgba(210,140,20,0.95)');
+      grad.addColorStop(1, 'rgba(160,90,0,0.9)');
+      tc.fillStyle = grad;
+      tc.fill();
+
+      // Sheen highlight on oil surface
+      tc.beginPath();
+      for(let x=0; x<=W; x+=2) {
+        const wave = Math.sin((x/W)*Math.PI*2.5 + waveOffset)*waveAmp;
+        if(x===0) tc.moveTo(x, oilTop+wave-1);
+        else tc.lineTo(x, oilTop+wave-1);
+      }
+      tc.strokeStyle = 'rgba(255,200,80,0.5)';
+      tc.lineWidth = 1.5;
+      tc.stroke();
+
+      // Pass B: draw letter white on black (mask)
+      const maskCanvas = document.createElement('canvas');
+      maskCanvas.width = W; maskCanvas.height = H;
+      const mc = maskCanvas.getContext('2d');
+      mc.fillStyle = '#000';
+      mc.fillRect(0,0,W,H);
+      mc.globalCompositeOperation = 'destination-out';
+      mc.font = `800 ${fontSize}px 'Syne', sans-serif`;
+      mc.textAlign = 'center';
+      mc.textBaseline = 'middle';
+      mc.fillStyle = '#fff';
+      mc.fillText('O', cx, cy+1);
+
+      // Combine: oil clipped to letter
+      tc.globalCompositeOperation = 'destination-in';
+      // draw white letter onto tmp
+      tc.font = `800 ${fontSize}px 'Syne', sans-serif`;
+      tc.textAlign = 'center';
+      tc.textBaseline = 'middle';
+      tc.fillStyle = '#fff';
+      tc.fillText('O', cx, cy+1);
+
+      ctx.drawImage(tmpCanvas, 0, 0);
+    }
+
+    // Step 2: draw outline O (always visible) — stroke only
+    ctx.save();
+    ctx.font = `800 ${fontSize}px 'Syne', sans-serif`;
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+
+    if(fill < 0.98) {
+      // Unfilled part: outline only
+      ctx.strokeStyle = '#E8EDF2';
+      ctx.lineWidth = 0.8;
+      ctx.strokeText('O', cx, cy+1);
+    } else {
+      // Fully filled: bright gold stroke
+      ctx.strokeStyle = '#D4A840';
+      ctx.lineWidth = 0.8;
+      ctx.strokeText('O', cx, cy+1);
+    }
+    ctx.restore();
+  }
+
+  function animate(ts) {
+    if(!lastTime) lastTime = ts;
+    const dt = ts - lastTime;
+    lastTime = ts;
+    waveOffset += dt * 0.003;
+
+    if(phase === 'filling') {
+      fillLevel = Math.min(1, fillLevel + dt / FILL_DURATION);
+      if(fillLevel >= 1) { phase = 'hold_full'; holdTimer = 0; }
+    } else if(phase === 'hold_full') {
+      holdTimer += dt;
+      if(holdTimer >= HOLD_FULL) { phase = 'emptying'; }
+    } else if(phase === 'emptying') {
+      fillLevel = Math.max(0, fillLevel - dt / (FILL_DURATION * 0.7));
+      if(fillLevel <= 0) { phase = 'hold_empty'; holdTimer = 0; }
+    } else if(phase === 'hold_empty') {
+      holdTimer += dt;
+      if(holdTimer >= HOLD_EMPTY) { phase = 'filling'; }
+    }
+
+    drawO(fillLevel);
+    requestAnimationFrame(animate);
+  }
+
+  // Wait for font to load then start
+  if(document.fonts) {
+    document.fonts.ready.then(() => requestAnimationFrame(animate));
+  } else {
+    setTimeout(() => requestAnimationFrame(animate), 500);
+  }
+})();
+
+/* ══════════════════════════════════════════
+   2. HERO PARTICLE SYSTEM
+══════════════════════════════════════════ */
+(function(){
+  const canvas = document.getElementById('particleCanvas');
+  if(!canvas) return;
+  const ctx = canvas.getContext('2d');
+
+  function resize() {
+    canvas.width = canvas.offsetWidth;
+    canvas.height = canvas.offsetHeight;
+  }
+  resize();
+  window.addEventListener('resize', resize);
+
+  const particles = [];
+  const N = 60;
+  for(let i=0;i<N;i++) {
+    particles.push({
+      x: Math.random(),
+      y: Math.random(),
+      r: Math.random()*1.5+0.3,
+      vx: (Math.random()-0.5)*0.00008,
+      vy: -Math.random()*0.00012-0.00004,
+      a: Math.random()*0.4+0.1,
+      gold: Math.random() > 0.6
+    });
+  }
+
+  function draw(ts) {
+    const W = canvas.width, H = canvas.height;
+    ctx.clearRect(0,0,W,H);
+    particles.forEach(p => {
+      p.x += p.vx;
+      p.y += p.vy;
+      if(p.y < -0.02) { p.y = 1.02; p.x = Math.random(); }
+      if(p.x < 0 || p.x > 1) { p.x = Math.random(); }
+      ctx.beginPath();
+      ctx.arc(p.x*W, p.y*H, p.r, 0, Math.PI*2);
+      ctx.fillStyle = p.gold
+        ? `rgba(212,168,64,${p.a})`
+        : `rgba(168,180,192,${p.a*0.4})`;
+      ctx.fill();
+    });
+    requestAnimationFrame(draw);
+  }
+  requestAnimationFrame(draw);
+})();
+
+/* ══════════════════════════════════════════
+   3. HERO DIAGRAM — animated 3D technical ring
+══════════════════════════════════════════ */
+(function(){
+  const canvas = document.getElementById('diagramCanvas');
+  if(!canvas) return;
+  const ctx = canvas.getContext('2d');
+  const W = canvas.width, H = canvas.height;
+  const cx = W/2, cy = H/2;
+  let t = 0;
+
+  const GOLD = '#D4A840', GOLD2 = 'rgba(212,168,64,', WHITE='rgba(232,237,242,';
+
+  function draw() {
+    ctx.clearRect(0,0,W,H);
+    t += 0.008;
+
+    // ── Rotating outer ring ──
+    const rot = t * 0.3;
+    for(let i=0;i<12;i++) {
+      const a = (i/12)*Math.PI*2 + rot;
+      const x = cx + Math.cos(a)*165;
+      const y = cy + Math.sin(a)*165;
+      const pulse = 0.4 + 0.3*Math.sin(t*2 + i*0.5);
+      ctx.beginPath();
+      ctx.arc(x, y, 3, 0, Math.PI*2);
+      ctx.fillStyle = `${GOLD2}${pulse})`;
+      ctx.fill();
+    }
+
+    // ── Static circles ──
+    [165, 135, 100, 60].forEach((r, i) => {
+      const alpha = [0.10, 0.07, 0.14, 0.20][i];
+      const dash = i === 2;
+      ctx.beginPath();
+      if(dash) ctx.setLineDash([4,7]);
+      ctx.arc(cx,cy,r,0,Math.PI*2);
+      ctx.strokeStyle = `${GOLD2}${alpha})`;
+      ctx.lineWidth = i===3?1.5:0.8;
+      ctx.stroke();
+      ctx.setLineDash([]);
+    });
+
+    // ── Crosshairs ──
+    [[cx-175,cy,cx+175,cy],[cx,cy-185,cx,cy+185]].forEach(([x1,y1,x2,y2])=>{
+      ctx.beginPath();ctx.moveTo(x1,y1);ctx.lineTo(x2,y2);
+      ctx.strokeStyle=`${GOLD2}0.06)`;ctx.lineWidth=0.8;ctx.stroke();
+    });
+
+    // ── Rotating inner scan line ──
+    const scanA = t * 0.8;
+    const grad = ctx.createLinearGradient(
+      cx, cy,
+      cx + Math.cos(scanA)*100, cy + Math.sin(scanA)*100
+    );
+    grad.addColorStop(0, `${GOLD2}0.0)`);
+    grad.addColorStop(0.6, `${GOLD2}0.15)`);
+    grad.addColorStop(1, `${GOLD2}0.0)`);
+    ctx.beginPath();ctx.moveTo(cx,cy);
+    ctx.arc(cx,cy,100,scanA-0.4,scanA+0.4);
+    ctx.closePath();
+    ctx.fillStyle=grad;ctx.fill();
+
+    // ── Gear teeth (8 teeth, rotating slowly) ──
+    const gearRot = t * 0.15;
+    for(let i=0;i<8;i++){
+      const a = (i/8)*Math.PI*2 + gearRot;
+      const x1=cx+Math.cos(a)*158, y1=cy+Math.sin(a)*158;
+      const x2=cx+Math.cos(a)*172, y2=cy+Math.sin(a)*172;
+      ctx.beginPath();ctx.moveTo(x1,y1);ctx.lineTo(x2,y2);
+      ctx.strokeStyle=`${GOLD2}0.4)`;ctx.lineWidth=5;
+      ctx.lineCap='round';ctx.stroke();ctx.lineCap='butt';
+    }
+
+    // ── Connector lines to labels ──
+    const labelPts=[
+      {a:-0.6, r:142, label:'API CI-4/SL'},
+      {a:0.6,  r:142, label:'ACEA E7'},
+      {a:Math.PI-0.6, r:142, label:'MB 228.3'},
+      {a:Math.PI+0.6, r:142, label:'VW 502.00'},
+    ];
+    labelPts.forEach(p=>{
+      const lx=cx+Math.cos(p.a)*p.r, ly=cy+Math.sin(p.a)*p.r;
+      const ex=cx+Math.cos(p.a)*(p.r+32), ey=cy+Math.sin(p.a)*(p.r+32);
+      const blink = 0.4+0.3*Math.sin(t*1.5+p.a);
+      ctx.beginPath();ctx.moveTo(lx,ly);ctx.lineTo(ex,ey);
+      ctx.strokeStyle=`${GOLD2}${blink*0.5})`;ctx.lineWidth=0.7;ctx.stroke();
+      ctx.beginPath();ctx.arc(lx,ly,3,0,Math.PI*2);
+      ctx.fillStyle=`${GOLD2}${blink})`;ctx.fill();
+      ctx.font='700 9px Syne,sans-serif';
+      ctx.fillStyle=`rgba(168,180,192,0.75)`;
+      ctx.textAlign=p.a>0&&p.a<Math.PI?'right':'left';
+      ctx.textBaseline='middle';
+      ctx.fillText(p.label, ex+(p.a>0&&p.a<Math.PI?-6:6), ey);
+    });
+
+    // ── Center panel ──
+    // Glow
+    const cGlow=ctx.createRadialGradient(cx,cy,0,cx,cy,58);
+    cGlow.addColorStop(0,`${GOLD2}0.10)`);
+    cGlow.addColorStop(1,`${GOLD2}0.0)`);
+    ctx.beginPath();ctx.arc(cx,cy,58,0,Math.PI*2);
+    ctx.fillStyle=cGlow;ctx.fill();
+    // Border
+    ctx.beginPath();ctx.arc(cx,cy,54,0,Math.PI*2);
+    ctx.strokeStyle=`${GOLD2}0.45)`;ctx.lineWidth=1.2;ctx.stroke();
+    ctx.beginPath();ctx.arc(cx,cy,40,0,Math.PI*2);
+    ctx.strokeStyle=`${GOLD2}0.2)`;ctx.lineWidth=0.6;ctx.stroke();
+    // Fill
+    ctx.beginPath();ctx.arc(cx,cy,53,0,Math.PI*2);
+    ctx.fillStyle='rgba(12,18,32,0.96)';ctx.fill();
+    // Text
+    ctx.textAlign='center';ctx.textBaseline='middle';
+    ctx.font='700 15px Syne,sans-serif';ctx.letterSpacing='4px';
+    ctx.fillStyle='#E8EDF2';ctx.fillText('UROX',cx,cy-7);
+    ctx.font='500 8px Syne,sans-serif';
+    ctx.fillStyle=GOLD;ctx.fillText('LUBRICANTS',cx,cy+8);
+
+    // ── Top/bottom grade labels ──
+    ctx.textAlign='center';ctx.textBaseline='middle';
+    ctx.font='600 9px Syne,sans-serif';
+    const lblAlpha=0.7+0.15*Math.sin(t);
+    ctx.fillStyle=`${GOLD2}${lblAlpha})`;
+    ctx.fillText('5W-30  ·  10W-40',cx,cy-192);
+    ctx.fillText('15W-40  ·  80W-90',cx,cy+192);
+
+    requestAnimationFrame(draw);
+  }
+  requestAnimationFrame(draw);
+})();
+
+/* ══════════════════════════════════════════
+   4. SCROLL FADE-UP
+══════════════════════════════════════════ */
+const obs = new IntersectionObserver(entries=>{
+  entries.forEach((e,i)=>{
+    if(e.isIntersecting){
+      setTimeout(()=>e.target.classList.add('in'), i*70);
+      obs.unobserve(e.target);
+    }
+  });
+},{threshold:0.08});
+document.querySelectorAll('.fu').forEach(el=>obs.observe(el));
+
+/* ══════════════════════════════════════════
+   5. 3D CARD TILT on mouse move
+══════════════════════════════════════════ */
+document.querySelectorAll('.pc').forEach(card=>{
+  card.addEventListener('mousemove',e=>{
+    const r=card.getBoundingClientRect();
+    const x=(e.clientX-r.left)/r.width-0.5;
+    const y=(e.clientY-r.top)/r.height-0.5;
+    card.style.transform=`perspective(800px) rotateY(${x*6}deg) rotateX(${-y*4}deg) translateY(-4px) scale(1.01)`;
+  });
+  card.addEventListener('mouseleave',()=>{
+    card.style.transform='';
+  });
+});
+</script>
+</body>
+</html>
